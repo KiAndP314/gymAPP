@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { LoginService } from '../services/login.service';
 import { notFutureDateValidation } from '../Validators/notFutureDateValidation';
 import { passwordValidator } from '../Validators/rightPassword';
 import { emailValidator } from '../Validators/hasRightEmail';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -15,7 +15,7 @@ import { emailValidator } from '../Validators/hasRightEmail';
 })
 export class LoginFormComponent {
 
-  constructor(private service:LoginService){}
+  constructor(private service:UserService){}
 
   regForm:FormGroup = new FormGroup(
     {
@@ -29,7 +29,7 @@ export class LoginFormComponent {
   
   salva()
   {
-    
+    this.service.addUser(this.regForm.value,)
   }
 }
 
