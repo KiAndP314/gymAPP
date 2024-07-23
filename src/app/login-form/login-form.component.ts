@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import { LoginService } from '../services/login.service';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoginService } from '../services/login.service';
+import { notFutureDateValidation } from '../Validators/notFutureDateValidation';
+import { passwordValidator } from '../Validators/rightPassword';
+import { emailValidator } from '../Validators/hasRightEmail';
 
 @Component({
   selector: 'app-login-form',
@@ -18,9 +21,9 @@ export class LoginFormComponent {
     {
       name : new FormControl('',[Validators.required]),
       surname : new FormControl('',[Validators.required]),
-      dob: new FormControl('',[Validators.required]),
-      email: new FormControl('',[Validators.required]),
-      password: new FormControl('',[Validators.required])
+      dob: new FormControl('',[Validators.required,notFutureDateValidation()]),
+      email: new FormControl('',[Validators.required,emailValidator()]),
+      password: new FormControl('',[Validators.required,passwordValidator()])
     }
   );
   
@@ -29,3 +32,5 @@ export class LoginFormComponent {
     
   }
 }
+
+
