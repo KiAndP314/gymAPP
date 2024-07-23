@@ -7,7 +7,7 @@ import { from, Observable, of } from 'rxjs';
 })
 export class UserService {
 
-  private Users: User[] =[
+  private users: User[] =[
     {
       id: 1,
       name: 'John',
@@ -16,7 +16,7 @@ export class UserService {
       gym: 'Fitness 24/7',
       email: 'john.doe@example.com',
       password: "John1",
-      couses: []
+      courses: []
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export class UserService {
       gym: 'Powerhouse Gym',
       email: 'jane.johnson@example.com',
       password: "Jane1",
-      couses: []
+      courses: []
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ export class UserService {
       gym: 'Gold',
       email: 'bob.smith@example.com',
       password: "Bob1",
-      couses: []
+      courses: []
     },
     {
       id: 4,
@@ -46,7 +46,7 @@ export class UserService {
       gym: 'LA Fitness',
       email: 'alice.brown@example.com',
       password: "Alice1",
-      couses: []
+      courses: []
     },
     {
       id: 5,
@@ -56,22 +56,22 @@ export class UserService {
       gym: 'Anytime Fitness',
       email: 'mike.davis@example.com',
       password: "Mike1",
-      couses: []
+      courses: []
     }
   ];
 
 
   getUsers(): User[] {
-    return this.Users;
+    return this.users;
   }
 
   getUserById(id: number): User | undefined {
-    return this.Users.find(user => user.id === id);
+    return this.users.find(user => user.id === id);
   }
 
   addUser(user: User) {
-    this.Users.push(user);
-    return of(this.Users);
+    this.users.push(user);
+    return of(this.users);
   }
 
   
