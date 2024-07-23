@@ -4,7 +4,4 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-    {path:"login",component:LoginComponent},
-    {path:"Gym",component:GymComponent},
-    {path:"User",component:UserComponent}
 ];
