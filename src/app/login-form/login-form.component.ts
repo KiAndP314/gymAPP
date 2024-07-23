@@ -17,6 +17,10 @@ export class LoginFormComponent {
 
   constructor(private service:UserService){}
 
+  isLogin: boolean = true;
+ 
+  
+
   regForm:FormGroup = new FormGroup(
     {
       name : new FormControl('',[Validators.required]),
@@ -26,6 +30,17 @@ export class LoginFormComponent {
       password: new FormControl('',[Validators.required,passwordValidator()])
     }
   );
+
+  toggleForm() {
+    this.isLogin = !this.isLogin;
+  }
+
+  onRegister() {
+    if (this.regForm.valid) {
+      
+      console.log('Register', this.regForm.value);
+    }
+  }
   
   salva()
   {

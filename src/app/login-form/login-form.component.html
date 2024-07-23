@@ -6,7 +6,8 @@
   <title>Login / Register Form</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
-    function toggleForm() {
+    function toggleForm() 
+    {
       document.getElementById('loginForm').classList.toggle('hidden');
       document.getElementById('registerForm').classList.toggle('hidden');
     }
@@ -30,7 +31,7 @@
           <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
             Login
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900" href="javascript:void(0);" onclick="toggleForm()">
+          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900" onclick="toggleForm()">
             Register
           </a>
         </div>
@@ -45,18 +46,26 @@
           <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerEmail" type="email" placeholder="Email">
         </div>
         <div class="mb-4">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerUsername">Username</label>
-          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerUsername" type="text" placeholder="Username">
+          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerName">Name</label>
+          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerName" type="text" placeholder="Name">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerSurname">Surname</label>
+          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerSurname" type="text" placeholder="Surname">
         </div>
         <div class="mb-6">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerPassword">Password</label>
           <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerPassword" type="password" placeholder="Password">
         </div>
+        <div class="mb-6">
+          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerDob">Date Of Birth</label>
+          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerDob" type="text" placeholder="Date Of Birth">
+        </div>
         <div class="flex items-center justify-between">
           <button class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
             Register
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900" href="javascript:void(0);" onclick="toggleForm()">
+          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900" onclick="toggleForm()">
             Login
           </a>
         </div>
