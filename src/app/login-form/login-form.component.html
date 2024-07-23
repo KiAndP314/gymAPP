@@ -1,77 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login / Register Form</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script>
-    function toggleForm() 
-    {
-      document.getElementById('loginForm').classList.toggle('hidden');
-      document.getElementById('registerForm').classList.toggle('hidden');
-    }
-  </script>
-</head>
-<body class="bg-gray-900 flex items-center justify-center h-screen">
+<div class="bg-gray-900 flex items-center justify-center h-screen">
   <div class="w-full max-w-md">
     <!-- Login Form -->
-    <div id="loginForm" class="bg-gray-800 p-8 rounded-lg shadow-md">
+    <div id="loginForm" class="bg-gray-800 p-8 rounded-lg shadow-md" *ngIf="isLogin">
       <h2 class="text-2xl font-bold text-red-800 mb-6 text-center">Login</h2>
-      <form>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="loginEmail">Email</label>
-          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginEmail" type="email" placeholder="Email">
+          <input formControlName="email" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginEmail" type="email" placeholder="Email">
         </div>
         <div class="mb-6">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="loginPassword">Password</label>
-          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginPassword" type="password" placeholder="Password">
+          <input formControlName="password" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginPassword" type="password" placeholder="Password">
         </div>
         <div class="flex items-center justify-between">
-          <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Login
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900" onclick="toggleForm()">
+          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900" (click)="toggleForm()">
             Register
           </a>
         </div>
       </form>
     </div>
     <!-- Register Form -->
-    <div id="registerForm" class="bg-gray-800 p-8 rounded-lg shadow-md hidden">
+    <div id="registerForm" class="bg-gray-800 p-8 rounded-lg shadow-md" *ngIf="!isLogin">
       <h2 class="text-2xl font-bold text-red-800 mb-6 text-center">Register</h2>
-      <form [formGroup]="regForm" (ngSubmit)="salva()">
+      <form [formGroup]="regForm" (ngSubmit)="onRegister()">
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerEmail">Email</label>
-          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerEmail" type="email" placeholder="Email">
+          <input formControlName="email" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerEmail" type="email" placeholder="Email">
         </div>
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerName">Name</label>
-          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerName" type="text" placeholder="Name">
+          <input formControlName="username" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerName" type="text" placeholder="Name">
         </div>
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerSurname">Surname</label>
-          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerSurname" type="text" placeholder="Surname">
+          <input formControlName="username" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerSurname" type="text" placeholder="Surname">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerDateOfBirth">Date Of Birth</label>
+          <input formControlName="username" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerDateOfBirth" type="text" placeholder="Date Of Birth">
         </div>
         <div class="mb-6">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerPassword">Password</label>
-          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerPassword" type="password" placeholder="Password">
-        </div>
-        <div class="mb-6">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerDob">Date Of Birth</label>
-          <input class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerDob" type="text" placeholder="Date Of Birth">
+          <input formControlName="password" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerPassword" type="password" placeholder="Password">
         </div>
         <div class="flex items-center justify-between">
-          <button class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          <button class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Register
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900" onclick="toggleForm()">
+          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900"  (click)="toggleForm()">
             Login
           </a>
         </div>
       </form>
     </div>
   </div>
-</body>
-
-</html>
+</div>
