@@ -5,6 +5,6 @@ import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
     {path:"login",component:LoginComponent},
-    {path:"Gym",component:GymComponent},
-    {path:"User",component:UserComponent}
+    {path:"gym",component:GymComponent},
+    {path:"user",component:UserComponent}
 ];
