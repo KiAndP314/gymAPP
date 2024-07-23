@@ -6,6 +6,7 @@ import { CorsoListComponent } from './corso-list/corso-list.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { HomePageAtletaComponent } from './home-page-atleta/home-page-atleta.component';
 
 export const routes: Routes = [
     {path:"login",component:LoginFormComponent},
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path:"corso/:id",component:CorsoDetailComponent},
     {path:"corsi",component:CorsoListComponent},
     {path:"home",component:HomepageComponent},
-    {path:"navbar",component:NavbarComponent}
+    {path:"navbar",component:NavbarComponent},
+    {path:"home-page-atleta",component:HomePageAtletaComponent}
 ];

@@ -76,5 +76,5 @@ export class UserService {
     return of(this.users);
   }
 
-  
+  public showInfoUser:boolean = false;
 }
