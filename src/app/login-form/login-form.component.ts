@@ -57,6 +57,7 @@ export class LoginFormComponent {
   salva()
   {
     this.service.addUser(this.regForm.value,)
+    console.log(this.service.getUsers);
   }
 }
 
