@@ -1,62 +1,77 @@
 import id from '@angular/common/locales/id';
 import { Injectable } from '@angular/core';
-import { User } from '../model/User';
+import { Entity } from '../model/Entity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private users: User[] =[
+  private Entitys: Entity[] =[
     {
       id: 1,
-      name: 'John',
-      surname: 'Doe',
-      dob: new Date('1990-01-01'),
-      gym: 'Fitness 24/7',
       email: 'john.doe@example.com',
-      password:"John1"
+      password:"John1",
+      type:"user"
     },
     {
       id: 2,
-      name: 'Jane',
-      surname: 'Johnson',
-      dob: new Date('1992-03-15'),
-      gym: 'Powerhouse Gym',
       email: 'jane.johnson@example.com',
-      password:"Jane1"
+      password:"Jane1",
+      type:"user"
     },
     {
       id: 3,
-      name: 'Bob',
-      surname: 'Smith',
-      dob: new Date('1985-06-20'),
-      gym: 'Gold',
       email: 'bob.smith@example.com',
-      password:"Bob1"
+      password:"Bob1",
+      type:"user"
     },
     {
       id: 4,
-      name: 'Alice',
-      surname: 'Brown',
-      dob: new Date('1995-09-10'),
-      gym: 'LA Fitness',
       email: 'alice.brown@example.com',
-      password:"Alice1"
+      password:"Alice1",
+      type:"user"
     },
     {
       id: 5,
-      name: 'Mike',
-      surname: 'Davis',
-      dob: new Date('1988-02-25'),
-      gym: 'Anytime Fitness',
       email: 'mike.davis@example.com',
-      password:"Mike1"
+      password:"Mike1",
+      type:"user"
+    },
+    {
+      id: 6,
+      email: "gym1@example.com",
+      password: "gym1pass",
+      type: "gym"
+    },
+    {
+      id: 7,
+      email: "gym2@example.com",
+      password: "gym2pass",
+      type: "gym"
+    },
+    {
+      id: 8,
+      email: "gym3@example.com",
+      password: "gym3pass",
+      type: "gym"
+    },
+    {
+      id: 9,
+      email: "gym4@example.com",
+      password: "gym4pass",
+      type: "gym"
+    },
+    {
+      id: 10,
+      email: "gym5@example.com",
+      password: "gym5pass",
+      type: "gym"
     }
   ];
 
-  getUsers(): User[] {
-    return this.users;
+  getEntitys(): Entity[] {
+    return this.Entitys;
   }
 
   
