@@ -1,4 +1,3 @@
-import id from '@angular/common/locales/id';
 import { Injectable } from '@angular/core';
 import { Entity } from '../model/Entity';
 
@@ -74,6 +73,10 @@ export class LoginService {
     return this.Entitys;
   }
 
+  getEntityById(id: number): Entity | undefined {
+    return this.Entitys.find(entity => entity.id === id);
+  }
+  
   
   
 }
