@@ -61,17 +61,19 @@ export class UserService {
   ];
 
 
-  getUsers(): User[] {
-    return this.users;
+  getUsers(): Observable<User[]>
+  {
+    return of(this.Users);
   }
 
-  getUserById(id: number): User | undefined {
-    return this.users.find(user => user.id === id);
+  getUserById(id: number):  Observable<any> | undefined {
+    return of(this.Users.find(user => user.id === id));
+
   }
 
-  addUser(user: User) {
-    this.users.push(user);
-    return of(this.users);
+  addUser(user: User):Observable<User[]> {
+    this.Users.push(user);
+    return of(this.Users);
   }
 
   
