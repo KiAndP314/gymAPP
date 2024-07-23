@@ -10,7 +10,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 export const routes: Routes = [
     {path:"login",component:LoginFormComponent},
     {path:"gym",component:GymComponent},
-    {path:"user",component:UserComponent},
+    {path:"user/:id",component:UserComponent},
     {path:"corso/:id",component:CorsoDetailComponent},
     {path:"corsi",component:CorsoListComponent},
     {path:"home",component:HomepageComponent},
