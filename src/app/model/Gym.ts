@@ -1,7 +1,6 @@
-export interface Gym
-{
-    id:number;
-    name:string;
-    address:string;
-    email:string;
-}
+export interface Gym {
+    id: number;
+    name: string;
+    address: string;
+    couses: string[];
+  }
