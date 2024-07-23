@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/User';
+import { from, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -58,4 +59,20 @@ export class UserService {
       couses: []
     }
   ];
+
+
+  getUsers(): User[] {
+    return this.Users;
+  }
+
+  getUserById(id: number): User | undefined {
+    return this.Users.find(user => user.id === id);
+  }
+
+  addUser(user: User) {
+    this.Users.push(user);
+    return of(this.Users);
+  }
+
+  
 }
