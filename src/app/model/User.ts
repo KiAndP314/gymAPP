@@ -7,6 +7,7 @@ export interface User extends Entity
     surname:string;
     gym:string;
     dob:Date;
+    couses: string[];
     // email:string;
     // password:string;
 }
