@@ -23,16 +23,16 @@ export class HomePageAtletaComponent {
   ngOnInit() {
     this.userService.id = this.route.snapshot.params['id'];
 
-  
-    this.userService.getUserById(this.userService.id).subscribe(u => {
-      this.userService.user = u as User;
-      if (this.userService.user) {
-        // uso l'oggetto user come se fosse un oggetto di tipo User
-        console.log(this.userService.user);
-      } else {
-        console.log('User not found');
-      }
-    });
+  //metodo carica dati user
+    // this.userService.getUserById(this.userService.id).subscribe(u => {
+    //   this.userService.user = u as User;
+    //   if (this.userService.user) {
+    //     // uso l'oggetto user come se fosse un oggetto di tipo User
+    //     console.log(this.userService.user);
+    //   } else {
+    //     console.log('User not found');
+    //   }
+    // });
 
   }
 
