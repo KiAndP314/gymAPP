@@ -85,5 +85,5 @@ export class UserService {
   //   return this.http.post<User>('/api/auth/register');
   // }
 
-  
+  public showInfoUser:boolean = false;
 }
