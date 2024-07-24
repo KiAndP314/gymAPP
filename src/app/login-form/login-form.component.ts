@@ -7,13 +7,13 @@ import { emailValidator } from '../Validators/hasRightEmail';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { Entity } from '../model/Entity';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,CommonModule, HttpClientModule],
+  imports: [FormsModule,ReactiveFormsModule,CommonModule],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })
@@ -62,27 +62,27 @@ export class LoginFormComponent {
   //   console.log(this.service.getUsers);
   // }
 
-  loginError:string = "";
+  // loginError:string = "";
 
-  login()
-  {
-    this.service.loginUser(this.loginForm.value,)
-    .subscribe(
-      {
-        next: (response:any) => 
-        {
-            const token = response.accessToken;
+  // login()
+  // {
+  //   this.service.loginUser(this.loginForm.value,)
+  //   .subscribe(
+  //     {
+  //       next: (response:any) => 
+  //       {
+  //           const token = response.accessToken;
             
-            localStorage.setItem('authToken', token);
-            this.router.navigate(['user/:id']);
-        },
-        error: badResponse => 
-        {
-          this.loginError = "hai sbagliato";
-        }
-      }
-    )
-  }
+  //           localStorage.setItem('authToken', token);
+  //           this.router.navigate(['user/:id']);
+  //       },
+  //       error: badResponse => 
+  //       {
+  //         this.loginError = "hai sbagliato";
+  //       }
+  //     }
+  //   )
+  // }
 }
 
 
