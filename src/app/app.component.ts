@@ -8,6 +8,7 @@ import { UserService } from './services/user.service';
 import { CommonModule } from '@angular/common';
 import { InfoUserComponent } from "./info-user/info-user.component";
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @Component({
