@@ -8,13 +8,14 @@ import { UserService } from './services/user.service';
 import { CommonModule } from '@angular/common';
 import { InfoUserComponent } from "./info-user/info-user.component";
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
+
+
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule, InfoUserComponent],
+  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule, InfoUserComponent,HttpClientModule],
   providers: [UserService], // Aggiungi qui
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
