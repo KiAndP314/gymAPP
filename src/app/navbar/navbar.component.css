@@ -3,6 +3,12 @@ img {
   }
   
   img {
-    width: 8%;
-    height: 8%;
+    width: 5%;
+    height: 5%;
+    margin: 0;
+  }
+
+  #navbar
+  {
+    height: 50%;
   }

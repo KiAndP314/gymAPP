@@ -2,29 +2,40 @@ import { Component, HostListener } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { UserService } from '../services/user.service';
 import { CommonModule } from '@angular/common';
+import { InfoUserComponent } from "../info-user/info-user.component";
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-home-page-atleta',
   standalone: true,
-  imports: [CommonModule ],
+  imports: [CommonModule, InfoUserComponent],
   templateUrl: './home-page-atleta.component.html',
   styleUrl: './home-page-atleta.component.css'
 })
 export class HomePageAtletaComponent {
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private route: ActivatedRoute) { }
 
-  getMyVariable(): boolean {
-    return this.userService.showInfoUser;
+  
+
+
+  ngOnInit() {
+    this.userService.id = this.route.snapshot.params['id'];
+
+  
+    this.userService.getUserById(this.userService.id).subscribe(u => {
+      this.userService.user = u as User;
+      if (this.userService.user) {
+        // uso l'oggetto user come se fosse un oggetto di tipo User
+        console.log(this.userService.user);
+      } else {
+        console.log('User not found');
+      }
+    });
+
   }
 
-  // ngAfterViewInit() {
-  //   document.addEventListener('click', (event) => {
-  //      target = event.target;
-  //   if (target.closest('#infoUser')) {
-  //       this.userService.showInfoUser = false;
-  //     }
-  //   });
-  // }
+
   
 
 }

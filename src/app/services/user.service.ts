@@ -66,15 +66,17 @@ export class UserService {
     return of(this.users);
   }
 
-  getUserById(id: number):  Observable<any> | undefined {
-    return of(this.users.find(user => user.id === id));
-
+  getUserById(id: number): Observable<User> {
+    return of(this.users.find(user => user.id == id)! );
   }
 
-  addUser(user: User):Observable<User[]> {
+  addUser(user: User):Observable<User[]> {//usare next e error
     this.users.push(user);
     return of(this.users);
   }
 
   public showInfoUser:boolean = false;
+
+  id: number=0;
+  user:User = {id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[]};
 }

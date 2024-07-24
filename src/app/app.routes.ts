@@ -9,9 +9,9 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { HomePageAtletaComponent } from './home-page-atleta/home-page-atleta.component';
 
 export const routes: Routes = [
-    {path:"login",component:LoginFormComponent},
+    {path:"",component:LoginFormComponent},
     {path:"gym",component:GymComponent},
-    {path:"user/:id",component:UserComponent},
+    {path:"user/:id",component:HomePageAtletaComponent},
     {path:"corso/:id",component:CorsoDetailComponent},
     {path:"corsi",component:CorsoListComponent},
     {path:"home",component:HomepageComponent},
