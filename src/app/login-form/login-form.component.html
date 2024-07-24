@@ -1,7 +1,7 @@
-<div class="bg-gray-900 flex items-center justify-center h-screen">
+<div class="bg-gray-900 flex items-center justify-center h-screen all">
   <div class="w-full max-w-md">
     <!-- Login Form -->
-    <div id="loginForm" class="bg-gray-800 p-8 rounded-lg shadow-md" *ngIf="isLogin">
+    <div id="loginForm" class="bg-gray-800 p-8 rounded-lg shadow-md form" *ngIf="isLogin">
       <h2 class="text-2xl font-bold text-red-800 mb-6 text-center">Login</h2>
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <div class="mb-4">
