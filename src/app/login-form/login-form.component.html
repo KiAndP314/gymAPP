@@ -3,7 +3,7 @@
     <!-- Login Form -->
     <div id="loginForm" class="bg-gray-800 p-8 rounded-lg shadow-md form" *ngIf="isLogin">
       <h2 class="text-2xl font-bold text-red-800 mb-6 text-center">Login</h2>
-      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="loginEmail">Email</label>
           <input formControlName="email" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginEmail" type="email" placeholder="Email">

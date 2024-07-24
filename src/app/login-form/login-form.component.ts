@@ -62,27 +62,27 @@ export class LoginFormComponent {
   //   console.log(this.service.getUsers);
   // }
 
-  // loginError:string = "";
+  loginError:string = "";
 
-  // login()
-  // {
-  //   this.service.loginUser(this.loginForm.value,)
-  //   .subscribe(
-  //     {
-  //       next: (response:any) => 
-  //       {
-  //           const token = response.accessToken;
+  login()
+  {
+    this.service.loginUser(this.loginForm.value,)
+    .subscribe(
+      {
+        next: (response:any) => 
+        {
+            const token = response.accessToken;
             
-  //           localStorage.setItem('authToken', token);
-  //           this.router.navigate(['user/:id']);
-  //       },
-  //       error: badResponse => 
-  //       {
-  //         this.loginError = "hai sbagliato";
-  //       }
-  //     }
-  //   )
-  // }
+            localStorage.setItem('authToken', token);
+            this.router.navigate(['user/:id']);
+        },
+        error: badResponse => 
+        {
+          this.loginError = "hai sbagliato";
+        }
+      }
+    )
+  }
 }
 
 
