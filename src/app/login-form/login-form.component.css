@@ -1,0 +1,13 @@
+.all 
+{
+    background-image: url('/assets/sfondologin.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#loginForm
+{
+    margin-left:30% !important;
+    width: 100% !important;
+}
