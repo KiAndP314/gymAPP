@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Entity } from '../model/Entity';
+import { User } from '../model/User';
 
 @Injectable({
   providedIn: 'root'
@@ -75,16 +76,14 @@ export class UserService {
   //   return of(this.users);
   // }
 
-  // getUserById(id: number):  Observable<any> | undefined {
-  //   return of(this.users.find(user => user.id === id));
-
+  // getUserById(id: number): Observable<User> {
+  //   return of(this.users.find(user => user.id == id)! );
   // }
 
-  // addUser(user: User):Observable<User[]> {
-    
-  //   return this.http.post<User>('/api/auth/register');
+  // addUser(user: User):Observable<User[]> {//usare next e error
+  //   this.users.push(user);
+  //   return of(this.users);
   // }
-
   public showInfoUser:boolean = false;
 
   id: number=0;

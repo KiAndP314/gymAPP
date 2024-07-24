@@ -19,6 +19,7 @@ export class HomePageAtletaComponent {
   
 
 
+  // user:User = {id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[]}
   ngOnInit() {
     this.userService.id = this.route.snapshot.params['id'];
 

@@ -1,13 +1,12 @@
 import { Entity } from "./Entity";
 
-export interface User extends Entity
+export interface User 
 {
-    // id:number;
+    id:number;
     name:string;
     surname:string;
     gym:string;
     dob:Date;
     courses: string[];
-    // email:string;
-    // password:string;
+    email:string;
 }
