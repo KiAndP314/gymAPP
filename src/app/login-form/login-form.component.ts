@@ -5,6 +5,9 @@ import { notFutureDateValidation } from '../Validators/notFutureDateValidation';
 import { passwordValidator } from '../Validators/rightPassword';
 import { emailValidator } from '../Validators/hasRightEmail';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
+import { Entity } from '../model/Entity';
+
 
 @Component({
   selector: 'app-login-form',
@@ -15,7 +18,7 @@ import { UserService } from '../services/user.service';
 })
 export class LoginFormComponent {
 
-  constructor(private service:UserService){}
+  constructor(private service:UserService,private router: Router){}
 
   isLogin: boolean = true;
  
@@ -42,22 +45,42 @@ export class LoginFormComponent {
 
   onLogin() {
     if (this.loginForm.valid) {
-      // Gestisci la logica di login
       console.log('Login', this.loginForm.value);
     }
   }
 
   onRegister() {
     if (this.regForm.valid) {
-      // Gestisci la logica di registrazione
       console.log('Register', this.regForm.value);
     }
   }
   
-  salva()
+  // salva()
+  // {
+  //   this.service.addUser(this.regForm.value,)
+  //   console.log(this.service.getUsers);
+  // }
+
+  loginError:string = "";
+
+  login()
   {
-    this.service.addUser(this.regForm.value,)
-    console.log(this.service.getUsers);
+    this.service.loginUser(this.loginForm.value,)
+    .subscribe(
+      {
+        next: (response:any) => 
+        {
+            const token = response.accessToken;
+            
+            localStorage.setItem('authToken', token);
+            this.router.navigate(['user/:id']);
+        },
+        error: badResponse => 
+        {
+          this.loginError = "hai sbagliato";
+        }
+      }
+    )
   }
 }
 
