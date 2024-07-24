@@ -8,7 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 
 export const routes: Routes = [
-    {path:"login",component:LoginFormComponent},
+    {path:"",component:LoginFormComponent},
     {path:"gym",component:GymComponent},
     {path:"user/:id",component:UserComponent},
     {path:"corso/:id",component:CorsoDetailComponent},
