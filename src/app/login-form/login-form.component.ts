@@ -7,13 +7,13 @@ import { emailValidator } from '../Validators/hasRightEmail';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { Entity } from '../model/Entity';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,CommonModule, HttpClientModule],
+  imports: [FormsModule,ReactiveFormsModule,CommonModule],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })
