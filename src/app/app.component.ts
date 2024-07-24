@@ -13,7 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule, InfoUserComponent,BrowserModule,HttpClientModule],
+  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule, InfoUserComponent,BrowserModule],
   providers: [UserService], // Aggiungi qui
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
