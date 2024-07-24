@@ -13,8 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule, InfoUserComponent,BrowserModule],
-  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule, InfoUserComponent,HttpClientModule],
+  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule, InfoUserComponent],
   providers: [UserService], // Aggiungi qui
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
