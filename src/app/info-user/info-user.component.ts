@@ -25,7 +25,7 @@ export class InfoUserComponent {
     
   }
 
-  u:User={id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[]};
+  u:User={id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[],password:""};
   ngOnInit() 
   {
     this.u=this.userService.user;

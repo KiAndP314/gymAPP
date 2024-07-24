@@ -9,4 +9,5 @@ export interface User
     dob:Date;
     courses: string[];
     email:string;
+    password:string;
 }
