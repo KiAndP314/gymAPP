@@ -9,7 +9,7 @@ import { User } from '../model/User';
 @Component({
   selector: 'app-home-page-atleta',
   standalone: true,
-  imports: [CommonModule, InfoUserComponent],
+  imports: [CommonModule, InfoUserComponent, NavbarComponent],
   templateUrl: './home-page-atleta.component.html',
   styleUrl: './home-page-atleta.component.css'
 })

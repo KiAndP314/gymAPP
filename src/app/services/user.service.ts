@@ -3,11 +3,13 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Entity } from '../model/Entity';
 import { User } from '../model/User';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  [x: string]: any;
 
   // private users: User[] =[
   //   {
@@ -63,7 +65,14 @@ export class UserService {
   // ];
 
 
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient,  private router: Router) {}
+
+  logout()
+  {
+    localStorage.removeItem('authToken');
+    this.router.navigate(['']);
+
+  }
 
   loginUser(entity:Entity):Observable<any> 
   {

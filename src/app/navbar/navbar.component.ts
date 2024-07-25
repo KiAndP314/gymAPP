@@ -10,8 +10,14 @@ import { UserService } from '../services/user.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private userService: UserService) { }
-  
+
+constructor(private userService: UserService) { }
+
+
+logout() 
+{
+  this.userService.logout();
+}  
 
 onClick() {
   console.log("cliccato su immagine profilo , apertura informazioni personali");
