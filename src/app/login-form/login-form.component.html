@@ -7,6 +7,12 @@
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="loginEmail">Email</label>
           <input formControlName="email" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginEmail" type="email" placeholder="Email">
+          @if (loginForm.get('email')?.getError('userNotFound') && loginForm.get('email')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-600">
+              User Invalid type 
+            </div>
+          }
         </div>
         <div class="mb-6">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="loginPassword">Password</label>
@@ -25,22 +31,22 @@
     <!-- Register Form -->
     <div id="registerForm" class="bg-gray-800 p-8 rounded-lg shadow-md" *ngIf="!isLogin">
       <h2 class="text-2xl font-bold text-red-800 mb-6 text-center">Register</h2>
-      <form [formGroup]="regForm" (ngSubmit)="onRegister()">
+      <form [formGroup]="regForm" (ngSubmit)="register()">
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerEmail">Email</label>
           <input formControlName="email" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerEmail" type="email" placeholder="Email">
         </div>
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerName">Name</label>
-          <input formControlName="username" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerName" type="text" placeholder="Name">
+          <input formControlName="name" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerName" type="text" placeholder="Name">
         </div>
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerSurname">Surname</label>
-          <input formControlName="username" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerSurname" type="text" placeholder="Surname">
+          <input formControlName="surname" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerSurname" type="text" placeholder="Surname">
         </div>
         <div class="mb-4">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerDateOfBirth">Date Of Birth</label>
-          <input formControlName="username" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerDateOfBirth" type="text" placeholder="Date Of Birth">
+          <input formControlName="dob" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerDateOfBirth" type="text" placeholder="Date Of Birth">
         </div>
         <div class="mb-6">
           <label class="block text-gray-400 text-sm font-bold mb-2" for="registerPassword">Password</label>

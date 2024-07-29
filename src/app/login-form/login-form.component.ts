@@ -55,18 +55,14 @@ export class LoginFormComponent {
       console.log('Register', this.regForm.value);
     }
   }
-  
-  // salva()
-  // {
-  //   this.service.addUser(this.regForm.value,)
-  //   console.log(this.service.getUsers);
-  // }
+
 
   loginError:string = "";
+  regError:string = "";
 
   login()
   {
-    this.service.loginUser(this.loginForm.value,)
+    this.service.loginUser(this.loginForm.value)
     .subscribe(
       {
         next: (response:any) => 
@@ -74,11 +70,33 @@ export class LoginFormComponent {
             const token = response.accessToken;
             
             localStorage.setItem('authToken', token);
-            this.router.navigate(['user/:id']);
+            localStorage.setItem('userId',response.id);
+            this.router.navigate(['user',response.id]);
         },
         error: badResponse => 
         {
-          this.loginError = "hai sbagliato";
+          this.loginForm.get('email')?.setErrors({userNotFound:"User not found!"})
+        }
+      }
+    )
+  }
+
+  register()
+  {
+    this.service.regUser(this.regForm.value)
+    .subscribe(
+      {
+        next: (response:any) => 
+        {
+          const token = response.accessToken;
+          
+          localStorage.setItem('authToken', token);
+          localStorage.setItem('userId',response.id);
+          this.router.navigate(['user/',response.id]);
+        },
+        error: badResponse =>
+        {
+          alert('Username already taken');
         }
       }
     )
