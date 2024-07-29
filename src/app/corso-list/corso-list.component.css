@@ -4,6 +4,20 @@ html, body {
   }
   
   .all {
-    background-color: darkgray;
+    background-color: rgba(183, 180, 180, 0.903);
     min-height: 100vh;
+  }
+  /* Definizione dello stile di ombra */
+.custom-shadow {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Applicazione dello stile alle immagini */
+  img.custom-shadow {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Effetto hover opzionale per dare dinamismo */
+  img.custom-shadow:hover {
+    transform: translateY(-5px);
   }

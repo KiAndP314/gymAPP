@@ -12,7 +12,7 @@ export class UserService {
   [x: string]: any;
 
 
-  constructor(private http:HttpClient,  private router: Router) {}
+  constructor(private http:HttpClient,private router: Router) {}
 
   logout()
   {
