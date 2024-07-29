@@ -16,5 +16,5 @@ export const routes: Routes = [
     {path:"corsi",component:CorsoListComponent},
     {path:"home",component:HomepageComponent},
     {path:"navbar",component:NavbarComponent},
-    {path:"home-page-atleta",component:HomePageAtletaComponent}
+    {path:"homepageatleta",component:HomePageAtletaComponent}
 ];

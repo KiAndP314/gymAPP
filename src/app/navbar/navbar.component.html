@@ -9,10 +9,14 @@
     <div class="hidden md:flex md:items-center md:w-auto w-full" id="menu">
         <nav>
             <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">HOME</button></li> 
-                <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">PALESTRE</button></li>
-                <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">CORSI</button></li>
-                <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">ABBONAMENTI</button></li>
+                <li><a class="md:p-4 py-3 px-0 block" href="user/:id">PROFILO</a></li>
+                <!-- if(stai nell utente) -->
+                    <li><a class="md:p-4 py-3 px-0 block" href="homepageatleta">HOME</a></li> 
+                <!-- else
+                    <li><a class="md:p-4 py-3 px-0 block" href="homepagepalestra">HOME</a></li>  -->
+                <li><button class="md:p-4 py-3 px-0 block" href="gymlist">PALESTRE</button></li>
+                <li><button class="md:p-4 py-3 px-0 block" href="corsi">CORSI</button></li>
+                <li><button class="md:p-4 py-3 px-0 block" href="abbonamenti">ABBONAMENTI</button></li>
                 <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">LOGOUT</button></li>
             </ul>
         </nav>
