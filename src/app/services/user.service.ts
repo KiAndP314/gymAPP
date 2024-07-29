@@ -31,10 +31,7 @@ export class UserService {
     return this.http.post<User>('/api/auth/register',user);
   }
 
-  logout()
-  {
-    localStorage.removeItem('authToken');
-  }
+  
 
  
   public showInfoUser:boolean = false;
