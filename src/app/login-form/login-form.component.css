@@ -1,6 +1,6 @@
 .all 
 {
-    background-image: url('/assets/sfondologin.png');
+    background-image: url('/assets/sfondoluigi.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8,6 +8,5 @@
 
 #loginForm
 {
-    margin-left:30% !important;
     width: 100% !important;
 }
