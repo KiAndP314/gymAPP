@@ -1,6 +1,27 @@
 <div class="all">
   <div class="container mx-auto p-8">
-    <!-- Course 1 -->
+    <div *ngFor="let corso of corsi" class="flex flex-wrap mb-28 course-container">
+      <div class="w-full md:w-1/2" [class.md:order-2]="corso.id % 2 !== 0">
+        <img [src]="corso.img" [alt]="corso.nome" class="max-w-lg rounded-lg shadow-lg mx-auto custom-shadow">
+      </div>
+      <div class="w-full md:w-1/2 md:pl-8 flex flex-col justify-center" [class.md:order-1]="corso.id % 2 !== 0">
+        <h2 class="text-5xl font-36px Gotham text-red-800 mb-4 font-audiowide">{{ corso.nome }}</h2>
+        <p class="text-white mb-4">
+          <strong>Orario di Apertura e Chiusura:</strong><br>
+            {{ corso.orari }}<br>
+        </p>
+        <p class="text-white">
+          <strong>Panoramica del Corso:</strong><br>
+          {{ corso.descrizione }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="all">
+  <div class="container mx-auto p-8">
+     Course 1 
     <div class="course-container">
     <div class="flex flex-wrap mb-16">
       <div class="w-full md:w-1/2 ">
@@ -26,13 +47,13 @@
         </p>
       </div>
     </div>
-    </div> <!--chiusura container -->
-    <!-- Course 2 -->
+    </div> <chiusura container -->
+    <!-- Course 2 
     <div class="flex flex-wrap mb-16">
       <div class="w-full md:w-1/2 md:order-2 flex items-start">
         <img src="/assets/kickboxing.jpg" alt="Course 2" class="max-w-sm rounded-lg shadow-lg mx-auto custom-shadow">
       </div>
-      <div class="w-full md:w-1/2 md:pr-8 flex flex-col justify-center md:order-1">
+      <div class="w-full md:w-1/2 md:pr-8 flex flex-col justify-center md:order-1 pl-16">
         <h2 class="text-5xl font-36px Gotham text-red-800 mb-4">Kick Boxing</h2>
         <p class="text-black mb-4">
           <strong>Orario di Apertura e Chiusura:</strong><br>
@@ -51,7 +72,7 @@
       </div>
     </div>
 
-    <!-- Course 3 -->
+     Course 3 
     <div class="flex flex-wrap mb-16">
       <div class="w-full md:w-1/2 ">
         <img src="/assets/fitness.jpg" alt="Course 3" class="max-w-sm rounded-lg shadow-lg mx-auto custom-shadow">
@@ -76,4 +97,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

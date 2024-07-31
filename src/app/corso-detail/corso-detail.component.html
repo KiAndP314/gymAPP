@@ -1,1 +1,21 @@
-<p>corso-detail works!</p>
+<div class="corsi" [routerLink]="['/corsi/',corso.id]" > 
+<div *ngIf="corso" class="p-8 max-w-4xl mx-auto bg-white rounded-lg shadow-md">
+    <h1 class="text-4xl font-semibold text-red-800 mb-6">{{ corso.nome }}</h1>
+    <div class="flex flex-col md:flex-row items-center mb-6">
+      <img [src]="corso.img" alt="{{ corso.nome }}" class="w-full md:w-1/2 max-w-sm rounded-lg shadow-md mb-4 md:mb-0 md:mr-8">
+      <div class="text-gray-800">
+        <p class="text-lg mb-4">
+          <strong class="block mb-2 text-xl">Orario di Apertura e Chiusura:</strong>
+          {{ corso.orari}}
+        </p>
+        <p class="text-lg">
+          <strong class="block mb-2 text-xl">Panoramica del Corso:</strong>
+          {{ corso.descrizione }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!corso" class="p-8 max-w-4xl mx-auto bg-white rounded-lg shadow-md text-center">
+    <p class="text-xl text-red-800">Corso non trovato. Riprova più tardi o seleziona un altro corso.</p>
+  </div>
+</div>

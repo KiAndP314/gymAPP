@@ -4,13 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Entity } from '../model/Entity';
 import { User } from '../model/User';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  [x: string]: any;
-
 
   constructor(private http:HttpClient,private router: Router) {}
 
@@ -21,14 +20,14 @@ export class UserService {
 
   }
 
-  loginUser(entity:Entity):Observable<any> 
+  loginUser(entity:Entity):Observable<any>  //loginUser(form:FormGroup)
   {
     return this.http.post<any>('/api/auth/login',entity);
   }
 
-  regUser(user:User):Observable<User>
+  regUser(user:User)
   {
-    return this.http.post<User>('/api/auth/register',user);
+    return this.http.post('/api/auth/register',user,{responseType:"text"});
   }
 
   
