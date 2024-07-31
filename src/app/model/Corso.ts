@@ -1,8 +1,11 @@
 export interface Corso
 {
     id:number;
-    name:string;
+    nome:string;
     descrizione:string;
     orari:string;
-    sede : string;
+    img:string;
+    prezzo:number;
+    dataFine:string;
+    dataInizio:string;
 }

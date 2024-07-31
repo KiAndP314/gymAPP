@@ -11,7 +11,7 @@ import { GymlistComponent } from './gymlist/gymlist.component';
 import { AbbonamentiComponent } from './abbonamenti/abbonamenti.component';
 
 export const routes: Routes = [
-    {path:"",component:LoginFormComponent},
+    {path:"",component:HomepageComponent},
     {path:"gym",component:GymComponent},
     {path:"gymlist",component:GymlistComponent},
     {path:"user/:id",component:HomePageAtletaComponent},
@@ -19,6 +19,6 @@ export const routes: Routes = [
     {path:"corsi",component:CorsoListComponent},
     {path:"home",component:HomepageComponent},
     {path:"navbar",component:NavbarComponent},
-    {path:"homepageatleta",component:HomePageAtletaComponent},
+    {path:"login",component:LoginFormComponent},
     {path:"abbonamenti",component:AbbonamentiComponent}
 ];
