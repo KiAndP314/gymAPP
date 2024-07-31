@@ -4,4 +4,5 @@ export interface Corso
     name:string;
     descrizione:string;
     orari:string;
+    sede : string;
 }
