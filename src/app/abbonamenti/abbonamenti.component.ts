@@ -25,12 +25,10 @@ throw new Error('Method not implemented.');
   selectedSede: number | null = null;
 
   ngOnInit() {
-    this.corsi = this.palestraService.getCorsi();
   }
 
   onCorsoChange() {
     if (this.selectedCorso !== null) {
-      this.sedi = this.palestraService.getSedi(this.selectedCorso);
       this.orari = [];
       this.selectedSede = null; // Resetta la selezione della sede quando si cambia corso
     } else {
