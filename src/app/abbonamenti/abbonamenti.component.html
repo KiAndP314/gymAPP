@@ -6,7 +6,7 @@
     <div class="mb-4">
       <label for="corso" class="block text-sm font-medium text-gray-700">Seleziona un Corso</label>
       <select id="corso" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" [(ngModel)]="selectedCorso" (change)="ngOnInit()" name="corso">
-        <option *ngFor="let corso of corsi" [value]="corso.id">{{ corso.name }}</option>
+        <option *ngFor="let corso of corsi" [value]="corso.id">{{ corso.nome }}</option>
       </select>
     </div>
 <!-- 
