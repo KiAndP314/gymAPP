@@ -1,3 +1,29 @@
-.all {
- background-color: darkgray;
-}
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .all {
+    /* background-color: rgb(0, 0, 0); */
+    background-image: url('/assets/prova2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+  }
+  /* Definizione dello stile di ombra */
+.custom-shadow {
+    box-shadow: 0 10px 15px rgb(200, 6, 6);
+  }
+  
+  /* Applicazione dello stile alle immagini */
+  img.custom-shadow {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Effetto hover opzionale per dare dinamismo */
+  img.custom-shadow:hover {
+    transform: translateY(-5px);
+  }

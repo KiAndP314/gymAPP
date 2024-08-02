@@ -88,11 +88,9 @@ export class LoginFormComponent {
       {
         next: (response:any) => 
         {
-          const token = response.accessToken;
-          
-          localStorage.setItem('authToken', token);
-          localStorage.setItem('userId',response.id);
-          this.router.navigate(['user/',response.id]);
+          this.loginForm.get("email")?.setValue(this.regForm.get("email")?.value); 
+          this.loginForm.get("password")?.setValue(this.regForm.get("password")?.value);
+          this.login()
         },
         error: badResponse =>
         {
