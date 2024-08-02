@@ -1,0 +1,62 @@
+#homepage
+{
+    background-color: black;
+}
+.desription-container
+{
+    width: 70%;
+    /* background-color: #80808040; */
+    margin-top: 2%;
+    margin-left: 3%;
+    padding: 1.8%;
+    border-radius: 10px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;  
+}
+
+.description-title
+{
+    font-weight: bold;        
+    color: #ff5733;          
+    font-size: 24px;
+    padding-bottom: 1%;
+
+}
+
+.desription-container .description
+{
+font-size: 16px;
+color: white;
+}
+
+#description-footer
+{
+font-size: 16px;
+color: white;
+}
+
+h2
+{
+    font-weight: bold;        
+    color: #ff5733;          
+    font-size: 24px;
+    padding-bottom: 1%;
+}
+
+p
+{
+    font-size: 16px;
+    color: white;
+}
+.description-sedi > div
+{
+    flex: 1;
+    padding-right: 20px;
+}
+
+.fotoPalestra5
+{
+    width: 200px;
+    height: auto;
+    flex: 1;
+}
