@@ -11,12 +11,12 @@
             <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                 <li><a class="md:p-4 py-3 px-0 block" href="user/:id">PROFILO</a></li>
                 <!-- if(stai nell utente) -->
-                    <li><a class="md:p-4 py-3 px-0 block" href="homepageatleta">HOME</a></li> 
+                    <li><a class="md:p-4 py-3 px-0 block" href="home">HOME</a></li> 
                 <!-- else
                     <li><a class="md:p-4 py-3 px-0 block" href="homepagepalestra">HOME</a></li>  -->
                 <li><a class="md:p-4 py-3 px-0 block" href="/gymlist">PALESTRE</a></li>
-                <li><a class="md:p-4 py-3 px-0 block" href="corsi">CORSI</a></li>
-                <li><a class="md:p-4 py-3 px-0 block" href="abbonamenti">ABBONAMENTI</a></li>
+                <li><a class="md:p-4 py-3 px-0 block" href="/corsi">CORSI</a></li>
+                <li><a class="md:p-4 py-3 px-0 block" href="/abbonamenti">ABBONAMENTI</a></li>
                 @if (!isLogged()) 
                 {
                     <li><a class="md:p-4 py-3 px-0 block" href="login">LOGIN</a></li>
