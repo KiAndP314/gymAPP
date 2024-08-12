@@ -1,5 +1,5 @@
-<header class="lg:px-16 px-4 bg-white flex flex-wrap items-center py-4 shadow-md " id="navbar">
-    <div class="flex-1 flex justify-between items-center">
+<header class="lg:px-16 px-4 bg-white flex flex-wrap items-center py-4 shadow-md bg-black-700" id="navbar">
+    <div class="flex-1 flex justify-between items-center bg-black-700">
         <a href="#" class="text-xl">NOME SITO</a>
     </div>
 
@@ -11,13 +11,22 @@
             <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                 <li><a class="md:p-4 py-3 px-0 block" href="user/:id">PROFILO</a></li>
                 <!-- if(stai nell utente) -->
-                    <li><a class="md:p-4 py-3 px-0 block" href="homepageatleta">HOME</a></li> 
+                    <li><a class="md:p-4 py-3 px-0 block" href="home">HOME</a></li> 
                 <!-- else
                     <li><a class="md:p-4 py-3 px-0 block" href="homepagepalestra">HOME</a></li>  -->
                 <li><a class="md:p-4 py-3 px-0 block" href="/gymlist">PALESTRE</a></li>
-                <li><a class="md:p-4 py-3 px-0 block" href="corsi">CORSI</a></li>
-                <li><a class="md:p-4 py-3 px-0 block" href="abbonamenti">ABBONAMENTI</a></li>
-                <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">LOGOUT</button></li>
+                <li><a class="md:p-4 py-3 px-0 block" href="/corsi">CORSI</a></li>
+                <li><a class="md:p-4 py-3 px-0 block" href="/abbonamenti">ABBONAMENTI</a></li>
+                @if (!isLogged()) 
+                {
+                    <li><a class="md:p-4 py-3 px-0 block" href="login">LOGIN</a></li>
+                }
+                @else 
+                {
+                    <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">LOGOUT</button></li>
+                }
+                
+                
             </ul>
         </nav>
     </div>

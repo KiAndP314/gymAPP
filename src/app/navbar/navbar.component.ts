@@ -13,6 +13,10 @@ export class NavbarComponent {
 
 constructor(private userService: UserService) { }
 
+isLogged():boolean
+{
+  return localStorage.getItem('authToken') ? true : false;
+}
 
 logout() 
 {

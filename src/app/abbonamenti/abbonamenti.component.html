@@ -1,2 +1,27 @@
 <app-navbar></app-navbar>
-<p>abbonamenti works!</p>
+<div class="container mx-auto p-4">
+  <h2 class="text-2xl font-bold mb-4">Iscrizione ai Corsi di Palestra</h2>
+
+  <form>
+    <div class="mb-4">
+      <label for="corso" class="block text-sm font-medium text-gray-700">Seleziona un Corso</label>
+      <select id="corso" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" [(ngModel)]="selectedCorso" (change)="ngOnInit()" name="corso">
+        <option *ngFor="let corso of corsi" [value]="corso.id">{{ corso.nome }}</option>
+      </select>
+    </div>
+<!-- 
+    <div class="mb-4" *ngIf="sedi.length > 0">
+      <label for="sede" class="block text-sm font-medium text-gray-700">Seleziona una Sede</label>
+      <select id="sede" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" [(ngModel)]="selectedSede" (change)="onSedeChange()" name="sede">
+        <option *ngFor="let sede of sedi" [value]="sede.id">{{ sede.nome }}</option>
+      </select>
+    </div> -->
+
+    <div class="mb-4">
+      <label for="orari" class="block text-sm font-medium text-gray-700">Giorni e Orari Disponibili</label>
+      <ul class="mt-1 list-disc pl-5 space-y-1">
+        <li *ngFor="let orario of orari" class="text-sm text-gray-900">{{ orario }}</li>
+      </ul>
+    </div>
+  </form>
+</div>
