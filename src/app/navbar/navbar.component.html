@@ -1,5 +1,5 @@
-<header class="lg:px-16 px-4 bg-white flex flex-wrap items-center py-4 shadow-md " id="navbar">
-    <div class="flex-1 flex justify-between items-center">
+<header class="lg:px-16 px-4 bg-white flex flex-wrap items-center py-4 shadow-md bg-black-700" id="navbar">
+    <div class="flex-1 flex justify-between items-center bg-black-700">
         <a href="#" class="text-xl">NOME SITO</a>
     </div>
 
@@ -17,7 +17,16 @@
                 <li><a class="md:p-4 py-3 px-0 block" href="/gymlist">PALESTRE</a></li>
                 <li><a class="md:p-4 py-3 px-0 block" href="corsi">CORSI</a></li>
                 <li><a class="md:p-4 py-3 px-0 block" href="abbonamenti">ABBONAMENTI</a></li>
-                <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">LOGOUT</button></li>
+                @if (!isLogged()) 
+                {
+                    <li><a class="md:p-4 py-3 px-0 block" href="login">LOGIN</a></li>
+                }
+                @else 
+                {
+                    <li><button class="md:p-4 py-3 px-0 block" (click)="logout()">LOGOUT</button></li>
+                }
+                
+                
             </ul>
         </nav>
     </div>
