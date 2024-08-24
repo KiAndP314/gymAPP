@@ -29,5 +29,4 @@ onClick() {
   console.log(this.userService.showInfoUser);
 }
 
-
 }

@@ -44,17 +44,7 @@ export class LoginFormComponent {
     this.isLogin = !this.isLogin;
   }
 
-  onLogin() {
-    if (this.loginForm.valid) {
-      console.log('Login', this.loginForm.value);
-    }
-  }
 
-  onRegister() {
-    if (this.regForm.valid) {
-      console.log('Register', this.regForm.value);
-    }
-  }
 
 
   loginError:string = "";
@@ -83,22 +73,27 @@ export class LoginFormComponent {
 
   register()
   {
-    this.service.regUser(this.regForm.value)
-    .subscribe(
-      {
-        next: (response:any) => 
+    if (this.regForm.valid) {
+      this.service.regUser(this.regForm.value)
+      .subscribe(
         {
-          this.loginForm.get("email")?.setValue(this.regForm.get("email")?.value); 
-          this.loginForm.get("password")?.setValue(this.regForm.get("password")?.value);
-          this.login()
-        },
-        error: badResponse =>
-        {
-          alert('Username already taken');
+          next: (response:any) => 
+          {
+            this.loginForm.get("email")?.setValue(this.regForm.get("email")?.value); 
+            this.loginForm.get("password")?.setValue(this.regForm.get("password")?.value);
+            this.login()
+          },
+          error: badResponse =>
+          {
+            alert('Username already taken');
+            this.regForm.get('email')?.setErrors({emaiNotValid:"Email not valid!"})
+            this.regForm.get('password')?.setErrors({passwordNotValid:"Password not valid!"})
+          }
         }
-      }
-    )
-  }
+      )
+    }else{
+      console.log('Form is not valid');
+    }
 }
 
-
+}
