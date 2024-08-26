@@ -1,14 +1,61 @@
-img {
-    border-radius: 50%;
-  }
-  
-  img {
-    width: 5%;
-    height: 5%;
-    margin: 0;
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 
-  #navbar
-  {
-    height: 50%;
+/* Stili per la navbar */
+#navbar {
+  background-color: black; /* Sfondo nero */
+  color: white; /* Testo bianco */
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.8) !important; /* Shadow rossa intorno alla navbar */
+  z-index: 1000;
+  width: 100%;
+  position: fixed;
+}
+.logo-navbar {
+  width: 50px; /* Regola la larghezza dell'immagine */
+  height: 50px; /* Regola l'altezza dell'immagine */
+  background-color: rgb(133, 11, 11); /* Cerchio rosso */
+  border-radius: 50%; /* Cerchio perfetto */
+  position: relative; /* z-index funziona solo su elementi posizionati */
+  z-index: 1000; /* Imposta un valore alto per assicurarti che sia sopra agli altri */
+  margin-right: auto; /* Sposta il logo verso sinistra */
+  
+}
+
+/* Stili per l'icona del profilo */
+#navbar .icona-profilo {
+  color: white; /* Icona bianca */
+  background-color: red; /* Cerchio rosso */
+  border-radius: 50%; /* Cerchio perfetto */
+  padding: 10px; /* Spazio interno */
+  text-align: center; /* Testo centrato */
+}
+
+/* Stili per il menu responsive */
+#menu-toggle:checked ~ #menu {
+  display: flex; /* Mostra il menu quando il checkbox è selezionato */
+}
+
+
+@media (max-width: 768px) {
+  .logo-navbar {
+      width: 30px;
+      height: 30px;
   }
+}
+
+/* Cambia il colore del testo per tutte le nomenclature */
+.nomenclatura {
+  color: white;
+}
+
+/* Aggiungi questo per il link di login quando non si è loggati */
+.login-link {
+  color: white;
+}
+
+/* Aggiungi questo per il link di logout quando si è loggati */
+.logout-link {
+  color: white;
+}

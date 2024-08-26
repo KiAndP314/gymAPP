@@ -1,19 +1,21 @@
-<div class="corsi" [routerLink]="['/corsi/',corso.id]" > 
-<div *ngIf="corso" class="p-8 max-w-4xl mx-auto bg-white rounded-lg shadow-md">
-    <h1 class="text-4xl font-semibold text-red-800 mb-6">{{ corso.nome }}</h1>
-    <div class="flex flex-col md:flex-row items-center mb-6">
-      <img [src]="corso.img" alt="{{ corso.nome }}" class="w-full md:w-1/2 max-w-sm rounded-lg shadow-md mb-4 md:mb-0 md:mr-8">
-      <div class="text-gray-800">
-        <p class="text-lg mb-4">
-          <strong class="block mb-2 text-xl">Orario di Apertura e Chiusura:</strong>
-          {{ corso.orari}}
-        </p>
-        <p class="text-lg">
-          <strong class="block mb-2 text-xl">Panoramica del Corso:</strong>
-          {{ corso.descrizione }}
-        </p>
-      </div>
+<app-navbar></app-navbar>
+<div class="corsi">
+  <div class="background-image" [style.backgroundImage]="'url(' + corso.img + ')'"></div>
+  <div class="corso-info">
+    <h1>{{ corso.nome }}</h1>
+    <div class="info-container">
+      <p class="text-lg mb-4">
+        <strong>Orario di Apertura e Chiusura:</strong>
+        {{ corso.orari}}
+      </p>
+      <p class="text-lg">
+        <strong>Panoramica del Corso:</strong>
+        {{ corso.descrizione }}
+      </p>
     </div>
+    <button class=" bg-white hover:bg-slate-600 text-black font-bold py-2 px-4 rounded prenota-button" (click)="prenotaCorso()">
+      Prenota Corso
+    </button>
   </div>
   <div *ngIf="!corso" class="p-8 max-w-4xl mx-auto bg-white rounded-lg shadow-md text-center">
     <p class="text-xl text-red-800">Corso non trovato. Riprova più tardi o seleziona un altro corso.</p>
