@@ -23,7 +23,7 @@ export function passwordValidator(): ValidatorFn {
     console.log("hasUp or Low : ", hasUpperCaseAndLower);
     console.log("hasNumber : ", hasNumber);
     if (!minNumber || !hasUpperCaseAndLower || hasNumber) {
-      return { invalidEmail: 'Password must be at least 8 characters long, contain at least one uppercase letter, and one number' };
+      return { invalidPassword: 'Password must be at least 8 characters long, contain at least one uppercase letter, and one number' };
     }
 
     return null;
