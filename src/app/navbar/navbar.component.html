@@ -11,17 +11,20 @@
             <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                 <!-- Icona del profilo -->
                 
-                <li><a href="/gymlist" class="md:p-4 py-3 px-0 block nomenclatura">PALESTRE</a></li>
-                <li><a href="/corsi" class="md:p-4 py-3 px-0 block nomenclatura">CORSI</a></li>
+                
                 <!-- Link LOGIN/LOGOUT condizionale -->
                 @if (!isLogged()) 
                 {
+                    <li><a href="/gymlist" class="md:p-4 py-3 px-0 block nomenclatura">PALESTRE</a></li>
+                    <li><a href="/corsi" class="md:p-4 py-3 px-0 block nomenclatura">CORSI</a></li>
                     <li><a class="md:p-4 py-3 px-0 block login-link" href="login">LOGIN</a></li>
                 }
                 @else 
                 {
-                    <li><button class="md:p-4 py-3 px-0 block logout-link" (click)="logout()">LOGOUT</button></li>
                     <li><a href="user/:id" id="icona-profilo" class="md:p-4 py-3 px-0 block icona-profilo">👤</a></li>
+                    <li><a href="/gymlist" class="md:p-4 py-3 px-0 block nomenclatura">PALESTRE</a></li>
+                    <li><a href="/corsi" class="md:p-4 py-3 px-0 block nomenclatura">CORSI</a></li>
+                    <li><button class="md:p-4 py-3 px-0 block logout-link" (click)="logout()">LOGOUT</button></li>
                 }
             </ul>
         </nav>
