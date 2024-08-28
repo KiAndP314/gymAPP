@@ -10,7 +10,6 @@ import { FormGroup } from '@angular/forms';
   providedIn: 'root'
 })
 export class UserService {
-
   constructor(private http:HttpClient,private router: Router) {}
 
   logout()
@@ -30,11 +29,12 @@ export class UserService {
     return this.http.post('/api/auth/register',user,{responseType:"text"});
   }
 
-  
+  getUser(id:number)
+  {
+    return this.http.get<User>("/api/UserAdditionalInfo/"+id);
+  }
 
  
   public showInfoUser:boolean = false;
 
-  id: number=0;
-  user:User = {id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[],password:""};
 }

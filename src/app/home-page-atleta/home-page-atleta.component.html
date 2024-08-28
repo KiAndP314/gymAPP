@@ -1,20 +1,16 @@
 <app-navbar></app-navbar>
 <div class="user-profile all">
-    <div class="profile-image">
-      <img [src]="user.image" alt="Profile Image">
-    </div>
     <div class="user-details">
-      <h2>{{ user.name }} {{ user.surname }}</h2>
-      <p>Data di nascita: {{ user.birthdate | date }}</p>
-      <p>Palestra: {{ user.gym }}</p>
-      <p>Certificato medico: {{ user.medicalCertificate ? 'Sì' : 'No' }}</p>
+      <h2>{{ user.nome }} {{ user.cognome }}</h2>
+      <p>Data di nascita: {{ user.dob | date }}</p>
+      <p>Certificato medico: {{ user.certificato ? 'Sì' : 'No' }}</p>
       <p>Email: {{ user.email }}</p>
       
       <div class="courses">
         <h3>Corsi seguiti:</h3>
         <ul>
-          <li *ngFor="let course of user.courses">{{ course }}
-          <p>Abbonamento: {{ user.subscriptionType }} (Scadenza: {{ user.subscriptionExpiry | date }})</p>
+          <li *ngFor="let course of user.abbonamenti">{{ course }}
+          <p>Abbonamento: {{ course.nomeCorso }} (Scadenza: {{ course.dataScadenza | date }})</p>
         </li>
         </ul>
       </div>
