@@ -78,7 +78,7 @@ export class LoginFormComponent {
       this.service.regUser(this.regForm.value)
       .subscribe(
         {
-          next: (response:any) => 
+          next: (response) => 
           {
             this.loginForm.get("email")?.setValue(this.regForm.get("email")?.value); 
             this.loginForm.get("password")?.setValue(this.regForm.get("password")?.value);
@@ -86,9 +86,15 @@ export class LoginFormComponent {
           },
           error: badResponse =>
           {
-            alert('Username already taken');
-            this.regForm.get('email')?.setErrors({emaiNotValid:"Email not valid!"})
-            this.regForm.get('password')?.setErrors({passwordNotValid:"Password not valid!"})
+            console.log('Registration error:', badResponse); // Debugging
+            if (badResponse.status === 409) {
+              alert('Username already taken');
+            } else if (badResponse.status === 400) {
+              alert('Invalid input. Please check your details.');
+            } else {
+              alert('An unexpected error occurred. Please try again later.');
+            }
+          
           }
         }
       )

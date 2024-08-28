@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 
 export function passwordValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -7,23 +7,20 @@ export function passwordValidator(): ValidatorFn {
       return null; 
     }
 
-    let minNumber = password.length>=8;
-    let hasUpperCaseAndLower = password.toUpperCase()!=password && password.toLowerCase()!=password;
-    
-    // function hasNumber() {
-    //   return /\d/.test(password);
-    // }
-    
-    let hasNumber = false;
-    for(let i = 0;i<10;i++)
-        if(password.includes(i))
-            hasNumber=true;
+    // Verifica che la password abbia almeno 8 caratteri
+    let minNumber = password.length >= 8;
 
-    console.log("min number: ", minNumber);
-    console.log("hasUp or Low : ", hasUpperCaseAndLower);
-    console.log("hasNumber : ", hasNumber);
-    if (!minNumber || !hasUpperCaseAndLower || hasNumber) {
-      return { invalidPassword: 'Password must be at least 8 characters long, contain at least one uppercase letter, and one number' };
+    // Verifica che ci sia almeno una lettera maiuscola e una minuscola
+    let hasUpperCaseAndLower = password.toUpperCase() !== password && password.toLowerCase() !== password;
+
+    // Verifica che ci sia almeno un numero
+    let hasNumber = /\d/.test(password);
+
+    // Se una delle condizioni non è soddisfatta, restituisce un errore
+    if (!minNumber || !hasUpperCaseAndLower || !hasNumber) {
+      return { 
+        invalidPassword: 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number' 
+      };
     }
 
     return null;

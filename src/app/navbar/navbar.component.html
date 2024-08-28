@@ -10,16 +10,16 @@
         <nav>
             <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                 <!-- Icona del profilo -->
-                <li><a href="/corsi" class="md:p-4 py-3 px-0 block nomenclatura">CORSI</a></li>
+                <li><a [routerLink]="['/corsi']" class="md:p-4 py-3 px-0 block nomenclatura">CORSI</a></li>
                 <!-- Link LOGIN/LOGOUT condizionale -->
                 @if (!isLogged()) 
                 {
-                    <li><a class="md:p-4 py-3 px-0 block login-link" href="login">LOGIN</a></li>
+                    <li><a class="md:p-4 py-3 px-0 block login-link" [routerLink]="['login']">LOGIN</a></li>
                 }
                 @else 
                 {
                     <li><button class="md:p-4 py-3 px-0 block logout-link" (click)="logout()">LOGOUT</button></li>
-                    <li><a href="user/:id" id="icona-profilo" class="md:p-4 py-3 px-0 block icona-profilo">👤</a></li>
+                    <li><a [routerLink]="['user/:id']" id="icona-profilo" class="md:p-4 py-3 px-0 block icona-profilo">👤</a></li>
                 }
             </ul>
         </nav>
