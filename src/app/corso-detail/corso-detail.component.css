@@ -55,8 +55,8 @@
   
   @media (max-width: 768px) {
     .corsi .prenota-button {
-      position: relative;
-      margin: 0 auto;
+      position:absolute;
+      margin: 100 auto;
       width: 80%;
     }
   }

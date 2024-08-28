@@ -10,13 +10,19 @@
           @if (loginForm.get('email')?.getError('userNotFound') && loginForm.get('email')?.touched) 
           {
             <div class="mt-2 text-sm text-red-700">
-              User Invalid type 
+              Email non trovata
             </div>
           }
         </div>
         <div class="mb-6">
           <label class="block text-red-700 text-sm font-bold mb-2" for="loginPassword">Password</label>
           <input formControlName="password" class="bg-black-700 text-black-800 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginPassword" type="password" placeholder="Password">
+          @if (loginForm.get('password')?.getError('invalidPassword') && loginForm.get('password')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-700">
+              password non valida
+            </div>
+          }
         </div>
         <div class="flex items-center justify-between">
           <button class="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
@@ -35,10 +41,16 @@
         <div class="mb-4">
           <label class="block text-red-700 text-sm font-bold mb-2" for="registerEmail">Email</label>
           <input formControlName="email" class="bg-black-700 text-black-200 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerEmail" type="email" placeholder="Email">
-          @if (loginForm.get('email')?.getError('userNotFound') && loginForm.get('email')?.touched) 
+          @if (regForm.get('email')?.getError('userNotFound') && regForm.get('email')?.touched) 
           {
             <div class="mt-2 text-sm text-red-700">
-              User Invalid type 
+              email non valida
+            </div>
+          }
+          @if (regForm.get('email')?.getError('invalidEmail') && regForm.get('email')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-700">
+              email non valida
             </div>
           }
         </div>
@@ -53,14 +65,20 @@
         <div class="mb-4">
           <label class="block text-red-700 text-sm font-bold mb-2" for="registerDateOfBirth">Date Of Birth</label>
           <input formControlName="dob" class="bg-black-700 text-black-200 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerDateOfBirth" type="text" placeholder="Date Of Birth">
+          @if (regForm.get('dob')?.getError('dateNotValid') && regForm.get('dob')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-700">
+              data non valida
+            </div>
+          }
         </div>
         <div class="mb-6">
           <label class="block text-red-700 text-sm font-bold mb-2" for="registerPassword">Password</label>
           <input formControlName="password" class="bg-black-700 text-black-200 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerPassword" type="password" placeholder="Password">
-          @if (loginForm.get('password')?.getError('Not right password') && loginForm.get('password')?.touched) 
+          @if (regForm.get('password')?.getError('invalidPassword') && regForm.get('password')?.touched) 
           {
             <div class="mt-2 text-sm text-red-700">
-              Password Invalid type 
+              Password non valida 
             </div>
           }
         </div>
