@@ -15,23 +15,15 @@ import { User } from '../model/User';
 export class HomePageAtletaComponent {
   constructor(private userService: UserService,private route: ActivatedRoute) { }
 
-    user = {
-      image: 'https://example.com/path-to-profile-image.jpg',
-      name: 'Nome',
-      surname: 'Cognome',
-      birthdate: new Date('1990-01-01'),
-      gym: 'Palestra XYZ',
-      medicalCertificate: true,
-      email: 'utente@example.com',
-      subscriptionType: 'Annuale',
-      subscriptionExpiry: new Date('2025-01-01'),
-      courses: ['Yoga', 'Pilates', 'Bodybuilding', 'Cardio']
-    };
+  user!:User;
   
-
-
+  ngOnInit(): void 
+  {
+    let id = parseInt(this.route.snapshot.paramMap.get("id")!);
+    this.userService.getUser(id).subscribe(response=> this.user=response);
+  }
   // user:User = {id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[]}
-
+ 
 
   //metodo carica dati user
     // this.userService.getUserById(this.userService.id).subscribe(u => {
@@ -44,8 +36,9 @@ export class HomePageAtletaComponent {
     //   }
     // });
 
-  }
+  
 
 
   
 
+}
