@@ -34,7 +34,7 @@
   }
   .corsi .prenota-button {
     position: absolute;
-    bottom: 300px; /* Regola questa proprietà per spostare il bottone verso il basso */
+    bottom: 25%; /* Regola questa proprietà per spostare il bottone verso il basso */
     left: 50%; /* Sposta il bottone al centro */
     transform: translateX(-50%);
     background-color: #ffffff; /* Cambia il colore di sfondo */

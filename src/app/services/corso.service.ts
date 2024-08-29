@@ -20,5 +20,11 @@ export class CorsoService {
     return this.http.get<Corso>(url);
   }
 
+  prenotaCorso(corsoid:number): Observable<any>
+  {
+    let userId = localStorage.getItem("userId");
+    let body = {user_id:userId,corso_id:corsoid};
+    return this.http.post<any>("/api/abbonamento",body);
+  }
 
 }
