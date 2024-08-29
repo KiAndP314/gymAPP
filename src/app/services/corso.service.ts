@@ -16,10 +16,9 @@ export class CorsoService {
   }
 
   getOne(id: number): Observable<Corso> {
-    const url = `${this.baseUrl}/api/corsi/${id}`; // Assicurati che baseUrl sia definito correttamente
+    const url = `/api/corsi/${id}`; // Assicurati che baseUrl sia definito correttamente
     return this.http.get<Corso>(url);
   }
 
-  baseUrl:string = "http://localhost:4200";
 
 }

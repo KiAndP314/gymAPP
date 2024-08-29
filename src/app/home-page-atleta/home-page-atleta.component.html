@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 <div class="user-profile all">
     <div class="user-details">
-      <h2>{{ user.nome }} {{ user.cognome }}</h2>
-      <p>Data di nascita: {{ user.dob | date }}</p>
-      <p>Certificato medico: {{ user.certificato ? 'Sì' : 'No' }}</p>
-      <p>Email: {{ user.email }}</p>
+      <h2>{{ user?.nome }} {{ user?.cognome }}</h2>
+      <p>Data di nascita: {{ user?.dob | date }}</p>
+      <p>Certificato medico: {{ user?.certificato ? 'Sì' : 'No' }}</p>
+      <p>Email: {{ user?.email }}</p>
       
       <div class="courses">
         <h3>Corsi seguiti:</h3>
         <ul>
-          <li *ngFor="let course of user.abbonamenti">{{ course }}
+          <li *ngFor="let course of user?.abbonamenti">{{ course }}
           <p>Abbonamento: {{ course.nomeCorso }} (Scadenza: {{ course.dataScadenza | date }})</p>
         </li>
         </ul>
