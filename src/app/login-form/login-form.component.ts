@@ -33,8 +33,8 @@ export class LoginFormComponent {
 
   regForm:FormGroup = new FormGroup(
     {
-      name : new FormControl('',[Validators.required]),
-      surname : new FormControl('',[Validators.required]),
+      nome : new FormControl('',[Validators.required]),
+      cognome : new FormControl('',[Validators.required]),
       dob: new FormControl('',[Validators.required,notFutureDateValidation()]),
       email: new FormControl('',[Validators.required,emailValidator()]),
       password: new FormControl('',[Validators.required,passwordValidator()])

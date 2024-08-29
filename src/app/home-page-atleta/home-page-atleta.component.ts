@@ -2,14 +2,13 @@ import { Component, HostListener } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { UserService } from '../services/user.service';
 import { CommonModule } from '@angular/common';
-import { InfoUserComponent } from "../info-user/info-user.component";
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../model/User';
 
 @Component({
   selector: 'app-home-page-atleta',
   standalone: true,
-  imports: [CommonModule, InfoUserComponent, NavbarComponent],
+  imports: [CommonModule, NavbarComponent],
   templateUrl: './home-page-atleta.component.html',
   styleUrl: './home-page-atleta.component.css'
 })
@@ -32,8 +31,7 @@ export class HomePageAtletaComponent {
 
 
   // user:User = {id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[]}
-  ngOnInit() {
-    this.userService.id = this.route.snapshot.params['id'];
+
 
   //metodo carica dati user
     // this.userService.getUserById(this.userService.id).subscribe(u => {
@@ -51,4 +49,3 @@ export class HomePageAtletaComponent {
 
   
 
-}

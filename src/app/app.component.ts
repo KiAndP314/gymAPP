@@ -6,7 +6,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { HomePageAtletaComponent } from "./home-page-atleta/home-page-atleta.component";
 import { UserService } from './services/user.service';
 import { CommonModule } from '@angular/common';
-import { InfoUserComponent } from "./info-user/info-user.component";
+
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule, InfoUserComponent,HttpClientModule],
+  imports: [RouterOutlet, LoginFormComponent, HomepageComponent, NavbarComponent, HomePageAtletaComponent, CommonModule,HttpClientModule],
   providers: [UserService], // Aggiungi qui
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

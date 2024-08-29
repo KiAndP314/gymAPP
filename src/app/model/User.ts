@@ -3,9 +3,8 @@ import { Entity } from "./Entity";
 export interface User 
 {
     id:number;
-    name:string;
-    surname:string;
-    gym:string;
+    nome:string;
+    cognome:string;
     dob:Date;
     courses: string[];
     email:string;

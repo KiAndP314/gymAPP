@@ -35,6 +35,5 @@ export class UserService {
  
   public showInfoUser:boolean = false;
 
-  id: number=0;
-  user:User = {id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[],password:""};
+
 }
