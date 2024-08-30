@@ -6,7 +6,7 @@ export interface User
     nome:string;
     cognome:string;
     dob:Date;
-    courses: string[];
+    abbonamenti: any[];
     email:string;
-    password:string;
+    certificato:boolean;
 }

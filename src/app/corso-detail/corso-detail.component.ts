@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CorsoService } from '../services/corso.service';
-import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
 import { Corso } from '../model/Corso';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../navbar/navbar.component";
@@ -14,7 +14,7 @@ import { NavbarComponent } from "../navbar/navbar.component";
 })
 export class CorsoDetailComponent {
 
-  constructor(private corsoService:CorsoService,private route:ActivatedRoute)
+  constructor(private corsoService:CorsoService,private route:ActivatedRoute, private router:Router)
   {
     let corsoId: number = parseInt(this.route.snapshot.paramMap.get("id")!);
     console.log(corsoId);
@@ -32,8 +32,16 @@ export class CorsoDetailComponent {
 
   @Input() corso!: Corso;
 
-  prenotaCorso() {
-    console.log('Prenotazione del corso', this.corso.id);
-    // Qui dovresti implementare la logica per comunicare con il backend e gestire la prenotazione
+  prenotaCorso() 
+  {
+    let corsoId: number = parseInt(this.route.snapshot.paramMap.get("id")!);
+    this.corsoService.prenotaCorso(corsoId).subscribe
+    (
+      data => 
+        {
+          this.router.navigate(["user",localStorage.getItem("userId")])
+        }
+    )
+   
   }
 }

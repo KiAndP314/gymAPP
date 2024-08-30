@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+id=localStorage.getItem('userId');
 constructor(private userService: UserService) { }
 
 isLogged():boolean
