@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Corso } from '../model/Corso';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,11 @@ export class CorsoService {
     let userId = localStorage.getItem("userId");
     let body = {user_id:userId,corso_id:corsoid};
     return this.http.post<any>("/api/abbonamento",body);
+  }
+  rimuoviAbbonamento(abbid:number):Observable<any>
+  {
+    const url = `/api/abbonamento/${abbid}`;
+    return this.http.delete<any>(url);
   }
 
 }
