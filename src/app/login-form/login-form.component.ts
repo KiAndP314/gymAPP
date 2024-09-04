@@ -8,6 +8,7 @@ import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { Entity } from '../model/Entity';
 
+//ok
 
 
 @Component({
@@ -32,8 +33,8 @@ export class LoginFormComponent {
 
   regForm:FormGroup = new FormGroup(
     {
-      name : new FormControl('',[Validators.required]),
-      surname : new FormControl('',[Validators.required]),
+      nome : new FormControl('',[Validators.required]),
+      cognome : new FormControl('',[Validators.required]),
       dob: new FormControl('',[Validators.required,notFutureDateValidation()]),
       email: new FormControl('',[Validators.required,emailValidator()]),
       password: new FormControl('',[Validators.required,passwordValidator()])
@@ -44,17 +45,7 @@ export class LoginFormComponent {
     this.isLogin = !this.isLogin;
   }
 
-  onLogin() {
-    if (this.loginForm.valid) {
-      console.log('Login', this.loginForm.value);
-    }
-  }
 
-  onRegister() {
-    if (this.regForm.valid) {
-      console.log('Register', this.regForm.value);
-    }
-  }
 
 
   loginError:string = "";
@@ -83,24 +74,33 @@ export class LoginFormComponent {
 
   register()
   {
-    this.service.regUser(this.regForm.value)
-    .subscribe(
-      {
-        next: (response:any) => 
+    if (this.regForm.valid) {
+      this.service.regUser(this.regForm.value)
+      .subscribe(
         {
-          const token = response.accessToken;
+          next: (response) => 
+          {
+            this.loginForm.get("email")?.setValue(this.regForm.get("email")?.value); 
+            this.loginForm.get("password")?.setValue(this.regForm.get("password")?.value);
+            this.login()
+          },
+          error: badResponse =>
+          {
+            console.log('Registration error:', badResponse); // Debugging
+            if (badResponse.status === 409) {
+              alert('Username already taken');
+            } else if (badResponse.status === 400) {
+              alert('Invalid input. Please check your details.');
+            } else {
+              alert('An unexpected error occurred. Please try again later.');
+            }
           
-          localStorage.setItem('authToken', token);
-          localStorage.setItem('userId',response.id);
-          this.router.navigate(['user/',response.id]);
-        },
-        error: badResponse =>
-        {
-          alert('Username already taken');
+          }
         }
-      }
-    )
-  }
+      )
+    }else{
+      console.log('Form is not valid');
+    }
 }
 
-
+}

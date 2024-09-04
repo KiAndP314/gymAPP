@@ -1,62 +1,92 @@
 <div class="bg-gray-900 flex items-center justify-center h-screen all">
   <div class="w-full max-w-md">
     <!-- Login Form -->
-    <div id="loginForm" class="bg-gray-800 p-8 rounded-lg shadow-md form" *ngIf="isLogin">
-      <h2 class="text-2xl font-bold text-red-800 mb-6 text-center">Login</h2>
+    <div id="loginForm" class="bg-black p-8 rounded-lg shadow-red-md form" *ngIf="isLogin">
+      <h2 class="text-2xl font-bold text-red-700 mb-6 text-center">Login</h2>
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="mb-4">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="loginEmail">Email</label>
-          <input formControlName="email" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginEmail" type="email" placeholder="Email">
+          <label class="block text-red-700 text-sm font-bold mb-2" for="loginEmail">Email</label>
+          <input formControlName="email" class="bg-black-700 text-black-800 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-700" id="loginEmail" type="email" placeholder="Email">
           @if (loginForm.get('email')?.getError('userNotFound') && loginForm.get('email')?.touched) 
           {
-            <div class="mt-2 text-sm text-red-600">
-              User Invalid type 
+            <div class="mt-2 text-sm text-red-700">
+              Email non trovata
             </div>
           }
         </div>
         <div class="mb-6">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="loginPassword">Password</label>
-          <input formControlName="password" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginPassword" type="password" placeholder="Password">
+          <label class="block text-red-700 text-sm font-bold mb-2" for="loginPassword">Password</label>
+          <input formControlName="password" class="bg-black-700 text-black-800 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="loginPassword" type="password" placeholder="Password">
+          @if (loginForm.get('password')?.getError('invalidPassword') && loginForm.get('password')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-700">
+              password non valida
+            </div>
+          }
         </div>
         <div class="flex items-center justify-between">
-          <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          <button class="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Login
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900" (click)="toggleForm()">
+          <a class="inline-block align-baseline font-bold text-sm text-red-700 hover:text-red-900" (click)="toggleForm()">
             Register
           </a>
         </div>
       </form>
     </div>
     <!-- Register Form -->
-    <div id="registerForm" class="bg-gray-800 p-8 rounded-lg shadow-md" *ngIf="!isLogin">
-      <h2 class="text-2xl font-bold text-red-800 mb-6 text-center">Register</h2>
-      <form [formGroup]="regForm" (ngSubmit)="register()">
+    <div id="registerForm" class="bg-black p-8 rounded-lg shadow-red-md form" *ngIf="!isLogin">
+      <h2 class="text-2xl font-bold text-red-700 mb-6 text-center">Register</h2>
+      <form [formGroup]="regForm" (ngSubmit)="register()" >
         <div class="mb-4">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerEmail">Email</label>
-          <input formControlName="email" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerEmail" type="email" placeholder="Email">
+          <label class="block text-red-700 text-sm font-bold mb-2" for="registerEmail">Email</label>
+          <input formControlName="email" class="bg-black-700 text-black-200 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerEmail" type="email" placeholder="Email">
+          @if (regForm.get('email')?.getError('userNotFound') && regForm.get('email')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-700">
+              email non valida
+            </div>
+          }
+          @if (regForm.get('email')?.getError('invalidEmail') && regForm.get('email')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-700">
+              email non valida
+            </div>
+          }
         </div>
         <div class="mb-4">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerName">Name</label>
-          <input formControlName="name" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerName" type="text" placeholder="Name">
+          <label class="block text-red-700 text-sm font-bold mb-2" for="registerName">Name</label>
+          <input formControlName="nome" class="bg-black-700 text-black-200 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerName" type="text" placeholder="Nome">
         </div>
         <div class="mb-4">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerSurname">Surname</label>
-          <input formControlName="surname" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerSurname" type="text" placeholder="Surname">
+          <label class="block text-red-700 text-sm font-bold mb-2" for="registerSurname">Surname</label>
+          <input formControlName="cognome" class="bg-black-700 text-black-200 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerSurname" type="text" placeholder="Cognome">
         </div>
         <div class="mb-4">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerDateOfBirth">Date Of Birth</label>
-          <input formControlName="dob" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerDateOfBirth" type="text" placeholder="Date Of Birth">
+          <label class="block text-red-700 text-sm font-bold mb-2" for="registerDateOfBirth">Date Of Birth</label>
+          <input formControlName="dob" class="bg-black-700 text-black-200 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerDateOfBirth" type="text" placeholder="Date Of Birth">
+          @if (regForm.get('dob')?.getError('dateNotValid') && regForm.get('dob')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-700">
+              data non valida
+            </div>
+          }
         </div>
         <div class="mb-6">
-          <label class="block text-gray-400 text-sm font-bold mb-2" for="registerPassword">Password</label>
-          <input formControlName="password" class="bg-gray-700 text-gray-200 appearance-none border border-gray-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerPassword" type="password" placeholder="Password">
+          <label class="block text-red-700 text-sm font-bold mb-2" for="registerPassword">Password</label>
+          <input formControlName="password" class="bg-black-700 text-black-200 appearance-none border border-red-700 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:border-red-500" id="registerPassword" type="password" placeholder="Password">
+          @if (regForm.get('password')?.getError('invalidPassword') && regForm.get('password')?.touched) 
+          {
+            <div class="mt-2 text-sm text-red-700">
+              Password non valida 
+            </div>
+          }
         </div>
         <div class="flex items-center justify-between">
-          <button class="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-            Register
+          <button type="submit" class="bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            Register 
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-red-800 hover:text-red-900"  (click)="toggleForm()">
+          <a class="inline-block align-baseline font-bold text-sm text-red-700 hover:text-red-900"  (click)="toggleForm()">
             Login
           </a>
         </div>

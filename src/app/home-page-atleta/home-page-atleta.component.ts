@@ -2,38 +2,39 @@ import { Component, HostListener } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { UserService } from '../services/user.service';
 import { CommonModule } from '@angular/common';
-import { InfoUserComponent } from "../info-user/info-user.component";
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../model/User';
+import { CorsoService } from '../services/corso.service';
+import { Corso } from '../model/Corso';
 
 @Component({
   selector: 'app-home-page-atleta',
   standalone: true,
-  imports: [CommonModule, InfoUserComponent, NavbarComponent],
+  imports: [CommonModule, NavbarComponent],
   templateUrl: './home-page-atleta.component.html',
   styleUrl: './home-page-atleta.component.css'
 })
 export class HomePageAtletaComponent {
-  constructor(private userService: UserService,private route: ActivatedRoute) { }
+  constructor(private userService: UserService,private route: ActivatedRoute,private corsoService:CorsoService) { }
 
-    user = {
-      image: 'https://example.com/path-to-profile-image.jpg',
-      name: 'Nome',
-      surname: 'Cognome',
-      birthdate: new Date('1990-01-01'),
-      gym: 'Palestra XYZ',
-      medicalCertificate: true,
-      email: 'utente@example.com',
-      subscriptionType: 'Annuale',
-      subscriptionExpiry: new Date('2025-01-01'),
-      courses: ['Yoga', 'Pilates', 'Bodybuilding', 'Cardio']
-    };
+  user!:User;
   
-
-
+  ngOnInit(): void 
+  {
+    let id = parseInt(this.route.snapshot.paramMap.get("id")!);
+    this.userService.getUser(id).subscribe(response=> this.user=response);
+  }
   // user:User = {id:0,email:"",name:"",surname:"",gym:"",dob:new Date,courses:[]}
-  ngOnInit() {
-    this.userService.id = this.route.snapshot.params['id'];
+  rimuoviAbbonamento(abbid:number) {
+    {
+      this.corsoService.rimuoviAbbonamento(abbid).subscribe
+      (
+        resp=> this.user.abbonamenti.splice(this.user.abbonamenti.findIndex(a => a.id==abbid),1)
+      )
+     
+    }
+
+  }
 
   //metodo carica dati user
     // this.userService.getUserById(this.userService.id).subscribe(u => {
@@ -46,7 +47,7 @@ export class HomePageAtletaComponent {
     //   }
     // });
 
-  }
+  
 
 
   

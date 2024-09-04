@@ -1,1 +1,23 @@
-<p>corso-detail works!</p>
+<app-navbar></app-navbar>
+<div class="corsi">
+  <div class="background-image" [style.backgroundImage]="'url(' + corso.img + ')'"></div>
+  <div class="corso-info">
+    <h1>{{ corso.nome }}</h1>
+    <div class="info-container">
+      <p class="text-lg mb-4">
+        <strong>Orario di Apertura e Chiusura:</strong>
+        {{ corso.orari}}
+      </p>
+      <p class="text-lg">
+        <strong>Panoramica del Corso:</strong>
+        {{ corso.descrizione }}
+      </p>
+    </div>
+    <button class=" bg-white hover:bg-slate-600 text-black font-bold py-2 px-4 rounded prenota-button" (click)="prenotaCorso()">
+      Prenota Corso
+    </button>
+  </div>
+  <div *ngIf="!corso" class="p-8 max-w-4xl mx-auto bg-white rounded-lg shadow-md text-center">
+    <p class="text-xl text-red-800">Corso non trovato. Riprova più tardi o seleziona un altro corso.</p>
+  </div>
+</div>

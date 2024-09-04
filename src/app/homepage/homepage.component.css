@@ -1,0 +1,24 @@
+
+
+/* Aggiungi questa regola per spostare il contenuto sotto la navbar */
+app-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.homepage-container {
+    margin-top: 100px; /* Aumenta questo valore se la navbar è più alta */
+}
+.contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact img {
+    height: 60px; /* Riduci l'altezza per un logo più piccolo */
+    width: 60px;  /* Assicurati che il logo sia quadrato per avere una forma circolare */
+    border-radius: 50%; /* Rendi il logo circolare */
+    margin-left: 20px;
+}

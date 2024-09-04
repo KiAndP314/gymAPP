@@ -1,0 +1,74 @@
+.corsi {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .corsi .corso-info {
+    text-align:center;
+    color: white;
+    top: 50%;
+    left: 50%;
+   
+  }
+  
+  .corsi .background-image {
+    position: absolute;
+    width: 102%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); /* Regola lo sfocamento qui */
+    z-index: -1; /* Assicura che l'immagine sia dietro al contenuto */
+  }
+  .corsi h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .corsi p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .corsi .prenota-button {
+    position: absolute;
+    bottom: 25%; /* Regola questa proprietà per spostare il bottone verso il basso */
+    left: 50%; /* Sposta il bottone al centro */
+    transform: translateX(-50%);
+    background-color: #ffffff; /* Cambia il colore di sfondo */
+    color: rgb(0, 0, 0);
+    padding: 10px 20px; /* Regola le dimensioni del bottone */
+    border: none;
+    border-radius: 5px; /* Arrotonda i bordi del bottone */
+    cursor: pointer;
+  }
+  
+  /* Stile hover */
+  .corsi .prenota-button:hover {
+    background-color: #565b56;
+  }
+  .corsi .prenota-button {
+    transition: background-color 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    .corsi .prenota-button {
+      position:absolute;
+      margin: 100 auto;
+      width: 80%;
+    }
+  }
+    .corsi .info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+        width: 80%; /* Regola questa proprietà per controllare la larghezza del contenitore */
+        margin: 0 auto; /* Per centrare l'elemento */
+      }
+
+   

@@ -1,6 +1,12 @@
 body {
     @apply bg-cover bg-center;
-    background-image: url('/assets/sfondouser.jpeg');
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #f0f0f0;
   }
 
   .user-profile {
@@ -8,8 +14,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
     font-family: Arial, sans-serif;
+    height: 100%;
+    color: #f0f0f0;
+    z-index: 1;
+    position: relative;
   }
   
   .profile-image img {
@@ -22,25 +31,33 @@ body {
   
   .user-details {
     text-align: center;
-    max-width: 400px;
+    
+ 
   }
   
   .user-details h2 {
     margin: 10px 0;
     font-size: 24px;
+    font-size: 40px;
+    font-weight: bold;
+    border-bottom:1px solid #f6000078;
   }
   
   .user-details p {
     margin: 5px 0;
-    font-size: 16px;
+    font-size: 25px;
   }
   
   .courses {
-    margin-top: 20px;
+    margin-top: 50px;
+    color: black;
   }
   
   .courses h3 {
     margin-bottom: 10px;
+    color: #f0f0f0;
+    text-align: center;
+    font-size: 25px;
   }
   
   .courses ul {
@@ -49,9 +66,78 @@ body {
   }
   
   .courses li {
-    background-color: #f0f0f0;
-    margin-bottom: 5px;
-    padding: 10px;
-    border-radius: 5px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    border-radius: 25px;
+    font-size: x-large;
   }
   
+.all
+{
+  position: relative;
+  padding: 8% 10% 0px;
+  width: 100%;
+  min-height: 100vh;
+}
+.background
+{
+  position: absolute;
+  background-image:  url('/assets/sfondologin.png');
+  background-size: cover;
+  filter: blur(2px);
+  filter: brightness(0.5);
+  z-index: -1;
+  width: 101%; 
+  height: 100%;
+}
+.full-details
+{
+  border: 2px solid;
+  border-color: rgb(121, 6, 6);
+  border-radius: 15px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.75);
+  margin-left: auto;
+  box-shadow:  8px 8px 15px rgb(200, 6, 6);
+
+}
+.remove-icon {
+  color: red;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.remove-icon:hover {
+  color: darkred;
+}
+.certificato-medico {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding-left: 15%;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #890505;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #7f0606;
+}
+
+#file-upload {
+  display: none;
+}
